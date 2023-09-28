@@ -2,7 +2,7 @@ import DetailSlider from "./filmdetailslider/DetailSlider";
 import "./FilmDetail.scss";
 import { useSelector } from "react-redux";
 import Rating from "react-rating";
-
+import Comment from "../Comment/Comment";
 export default function FilmDetail() {
   const filmDetail = useSelector((state) => state.film.currentFilm);
 
@@ -50,7 +50,9 @@ export default function FilmDetail() {
             </div>
             <div className="script__info">
               <span className="info__title">Thông tin cơ bản </span>
-              <span className="info__script">{filmDetail?.genre}{" "}{`(${filmDetail?.time}Phút)`}</span>
+              <span className="info__script">
+                {filmDetail?.genre} {`(${filmDetail?.time}Phút)`}
+              </span>
             </div>
             <div className="script__category">
               <span className="category__title">Thể loại</span>
@@ -58,6 +60,13 @@ export default function FilmDetail() {
             </div>
           </div>
         </div>
+        <div className="trailer">
+          <div className="trailer__title"> Tóm tắt</div>
+          <div className="trailer__content">
+            <p>{filmDetail?.description}</p>
+          </div>
+        </div>
+        <Comment />    
       </section>
     </>
   );
