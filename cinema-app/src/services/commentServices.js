@@ -4,4 +4,7 @@ const getComments = (limit, page, idShowing) => {
     `/api/v1/comment?limit=${limit}&page=${page}&idShowing=${idShowing}`
   );
 };
-export { getComments };
+const createComment = (data) => {
+  return axios.post(`/api/v1/comment`, data);
+};
+export { getComments, createComment };
