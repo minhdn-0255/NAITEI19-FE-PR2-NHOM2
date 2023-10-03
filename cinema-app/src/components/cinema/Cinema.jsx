@@ -1,6 +1,7 @@
 import React from "react";
 import "./Cinema.scss"
 import CinemaDetail from "./CinemaDetail.jsx";
+import { useState } from "react";
 export default function Cinema(){
     const data = [
         {id : 1 ,
@@ -54,271 +55,30 @@ export default function Cinema(){
     },
     
     ]
-    function selectAddress(id){
-        console.log(id)
-    }
-    const movie = [
-        {   movieId : 1 ,
-            movieName : 'Biệt đội đánh thuê 4',
-            screen : [{screenName : 'Screen 01',
-                        time : '12:50',
-                        seat : '112/112'
-                    },
-                    {screenName : 'Screen 01',
-                        time : '12:50',
-                        seat : '112/112'
-                    },
-                    {screenName : 'Screen 01',
-                        time : '12:50',
-                        seat : '112/112'
-                    },
-                    {screenName : 'Screen 01',
-                        time : '12:50',
-                        seat : '112/112'
-                    },
-                    {screenName : 'Screen 01',
-                        time : '12:50',
-                        seat : '112/112'
-                    },
-                    {screenName : 'Screen 01',
-                        time : '12:50',
-                        seat : '112/112'
-                    },
-                    {screenName : 'Screen 01',
-                        time : '12:50',
-                        seat : '112/112'
-                    },
+    const [selectedTheater, setSelectedTheater] = useState(null);
 
-                    {screenName : 'Screen 01',
-                        time : '12:50',
-                        seat : '112/112'
-                    },
-                ]
-
-    },
-    {   movieId : 2 ,
-        movieName : 'Ác quỷ ma sơ 2',
-        screen : [{screenName : 'Screen 01',
-                    time : '12:50',
-                    seat : '112/112'
-                },
-                {screenName : 'Screen 01',
-                    time : '12:50',
-                    seat : '112/112'
-                },
-                {screenName : 'Screen 01',
-                    time : '12:50',
-                    seat : '112/112'
-                },
-                {screenName : 'Screen 01',
-                    time : '12:50',
-                    seat : '112/112'
-                },
-                {screenName : 'Screen 01',
-                    time : '12:50',
-                    seat : '112/112'
-                },
-                {screenName : 'Screen 01',
-                    time : '12:50',
-                    seat : '112/112'
-                },
-                {screenName : 'Screen 01',
-                    time : '12:50',
-                    seat : '112/112'
-                },
-
-                {screenName : 'Screen 01',
-                    time : '12:50',
-                    seat : '112/112'
-                },
-            ]
-
-},
-{   movieId : 3 ,
-    movieName : 'Nhân Duyên Tiền Đình',
-    screen : [{screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-        ]
-
-},
-{   movieId : 4 ,
-    movieName : 'THE IU CONCERT: GOLDEN HOUR - THỜI KHẮC QUÝ GIÁ',
-    screen : [{screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-        ]
-
-},
-{   movieId : 5 ,
-    movieName : 'MUÔN KIẾP NHÂN DUYÊN',
-    screen : [{screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-        ]
-
-},
-{   movieId : 6 ,
-    movieName : 'ĐƠN HÀNG TỪ SÁT NHÂN',
-    screen : [{screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            
-        ]
-
-},
-{   movieId : 7 ,
-    movieName : 'HỌA QUỶ',
-    screen : [{screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-            {screenName : 'Screen 01',
-                time : '12:50',
-                seat : '112/112'
-            },
-        ]
-
-}
-    ]
+    const handleTheaterClick = (theater) => {
+      setSelectedTheater(theater);
+      console.log(theater)
+    };
     return(
         <>
         <div className="row">          
             <div className="row w-75 d-flex flex-row navbar-address"> 
            { data.map(cinemaDetail => (
-               <div key={cinemaDetail.id} className="col-2 navbar-item" onClick={selectAddress(cinemaDetail.id)}>    
+               <div key={cinemaDetail.id} className="col-2 navbar-item" onClick={()=>  handleTheaterClick(cinemaDetail)}>    
                             {cinemaDetail.address}
                 </div>
             
            ))}
         </div>
         <div className="cinema-body">
-            <CinemaDetail/>
+            {selectedTheater && <CinemaDetail theater={selectedTheater} />}
         </div>
-        <div className="col h-75 flex-row d-flex justify-content-center">
-            
-        </div>
+        
            </div>
         </>
     )
 }
+
 

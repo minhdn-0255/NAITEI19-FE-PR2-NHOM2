@@ -1,7 +1,9 @@
 import "./UserManagement.scss";
+import * as React from 'react'
+import { DataGrid } from '@mui/x-data-grid';
 import { userRows } from "../../../dummyData";
 import { useState } from "react";
-import { DataGrid } from '@mui/x-data-grid';
+
 export default function UserList() {
   const [data, setData] = useState(userRows); 
   const columns = [

@@ -192,18 +192,25 @@ element.style {
 }
 .time_aType .time_line dt {
     padding: 30px 0 0;
-    margin-top: 0;
+    margin-top: 80px;
     font-size: 16px;
     font-weight: bold;
     color: #231f20;
     background: none;
 }
+.time_aType .time_line:first-child dt{
+    margin-top: 0px;
+} 
 .time_line dd .cineD1 li {
     float: left;
     padding: 0 7px 0 8px;
     margin: 0;
     color: #666;
     background: url(https://www.lottecinemavn.com/LCHS/Image/bg/bg_line08.gif) no-repeat left 1px;
+}
+.time_line dd .theater_time {
+    overflow: hidden;
+    width: 935px;
 }
 .time_line dd .theater_time li a {
     display: block;
@@ -310,4 +317,14 @@ table {
     width: 980px;
     margin-top: 0px;
 }
+.navbar {
+  
+    transition: top 0.3s; 
+    z-index: 1000; 
+  }
+  
+  .navbar.visible {
+    top: 0; 
+  }
 
+  
