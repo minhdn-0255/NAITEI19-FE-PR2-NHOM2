@@ -1,16 +1,19 @@
-import "./UserManagement.scss";
+import "./FilmManagement.scss";
 import * as React from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import { userRows } from "../../../dummyData";
 import { useState } from "react";
 
-export default function UserList() {
+export default function FilmList() {
   const [data, setData] = useState(userRows); 
+  const handleDelete = (id) => {
+    setData(data.filter((item) => item.id !== id));
+  };
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
       field: "user",
-      headerName: "User",
+      headerName: "Film",
       width: 200,
       renderCell: (params) => {
         return (
@@ -21,16 +24,11 @@ export default function UserList() {
         );
       },
     },
-    { field: "email", headerName: "Email", width: 200 },
+    { field: "email", headerName: "Time", width: 200 },
     {
       field: "status",
       headerName: "Status",
       width: 120,
-    },
-    {
-      field: "transaction",
-      headerName: "Transaction Volume",
-      width: 160,
     },
     {
       field: "action",
@@ -39,7 +37,7 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <>      
-              <button className="userListEdit">Block</button>
+              <button className="userListDelete">Delete</button>
           </>
         );
       },

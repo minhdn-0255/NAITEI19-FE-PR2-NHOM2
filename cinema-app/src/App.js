@@ -8,6 +8,10 @@ import CinemaPage from "./pages/CinemaPage";
 import FilmDetailPage from "./pages/FilmDetail"
 import UserAdminPage from "./pages/AdminPage/UserAdmin";
 import FilmAdminPage from "./pages/AdminPage/FilmAdmin";
+import TicketPage from "./pages/Ticket";
+import TicketDetailPage from "./pages/TicketDetail";
+import GiftShopPage from "./pages/GiftShopPage";
+import GiftShopDetailPage from "./pages/GiftShopDetail";
 function App() {
   return (
     <Routes>
@@ -20,6 +24,12 @@ function App() {
       <Route path="/detail" element={<FilmDetailPage />}></Route> 
       <Route path="/admin/user" element={<UserAdminPage />}></Route> 
       <Route path="/admin/film" element={<FilmAdminPage />}></Route> 
+      <Route path="/movie-list" element={<FilmPage />}></Route>
+      <Route path="/detail" element={<FilmDetailPage />}></Route>
+      <Route path="/event" element={<TicketPage />}></Route>
+      <Route path="/event-detail" element={<TicketDetailPage />}></Route>
+      <Route path="/gift-shop" element={<GiftShopPage />}></Route>
+      <Route path="/gift-shop-detail" element={<GiftShopDetailPage />}></Route>
     </Routes>
     
   );

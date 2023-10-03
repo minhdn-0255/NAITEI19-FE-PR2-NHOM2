@@ -4,6 +4,10 @@ import { useState } from "react";
 import { DataGrid } from '@mui/x-data-grid';
 export default function UserList() {
   const [data, setData] = useState(userRows); 
+  const handleDelete = (id) => {
+    setData(data.filter((item) => item.id !== id));
+  };
+  
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
@@ -26,11 +30,6 @@ export default function UserList() {
       width: 120,
     },
     {
-      field: "transaction",
-      headerName: "Transaction Volume",
-      width: 160,
-    },
-    {
       field: "action",
       headerName: "Action",
       width: 150,
@@ -38,6 +37,9 @@ export default function UserList() {
         return (
           <>      
               <button className="userListEdit">Block</button>
+              <button className="userListDelete"  onClick={() => handleDelete(params.row.id)}>Delete</button>
+              
+            
           </>
         );
       },
