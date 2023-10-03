@@ -5,6 +5,8 @@ import FilmPage from "./pages/FilmPage";
 import FilmDetailPage from "./pages/FilmDetail"
 import TicketPage from "./pages/Ticket";
 import TicketDetailPage from "./pages/TicketDetail";
+import GiftShopPage from "./pages/GiftShopPage";
+import GiftShopDetailPage from "./pages/GiftShopDetail";
 function App() {
   return (
     <Routes>
@@ -13,6 +15,8 @@ function App() {
       <Route path="/detail" element={<FilmDetailPage />}></Route>
       <Route path="/event" element={<TicketPage />}></Route>
       <Route path="/event-detail" element={<TicketDetailPage />}></Route>
+      <Route path="/gift-shop" element={<GiftShopPage />}></Route>
+      <Route path="/gift-shop-detail" element={<GiftShopDetailPage />}></Route>
     </Routes>
   );
 }
