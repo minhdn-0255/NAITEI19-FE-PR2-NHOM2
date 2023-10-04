@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { register } from "../../../redux/slices/auth";
 import { clearMessage } from "../../../redux/slices/message";
+import "./Register.scss"
 const Register = () => {
   const [successful, setSuccessful] = useState(false);
   const { message } = useSelector((state) => state.message);
@@ -33,17 +34,16 @@ const Register = () => {
   return (
     <div className="col-md-12 signup-form">
       <div className="card card-container">
-        <img
-          src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-          alt="profile-img"
-          className="profile-img-card"
-        />
+      <div className="card-body">
+        <div className="login_label">
+          <h3>Đăng ký</h3>
+        </div>
         <Formik initialValues={initialValues} onSubmit={handleRegister}>
           <Form>
             {!successful && (
               <div>
                 <div className="form-group">
-                  <label htmlFor="username">Username</label>
+                  <label htmlFor="username">Tài khoản</label>
                   <Field name="username" type="text" className="form-control" />
                   <ErrorMessage
                     name="username"
@@ -63,7 +63,7 @@ const Register = () => {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">Mật khẩu</label>
                   <Field
                     name="password"
                     type="password"
@@ -76,7 +76,7 @@ const Register = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="password">Password Again</label>
+                  <label htmlFor="password">Nhập lại mật khẩu</label>
                   <Field
                     name="passwordAgain"
                     type="password"
@@ -88,8 +88,10 @@ const Register = () => {
                     className="alert alert-danger"
                   />
                 </div>
-                <div>
-                  <label htmlFor="phonenumber">phonenumber</label>
+                <div className="phone">
+                  <label htmlFor="phonenumber">
+                    Số điện thoại
+                  </label>
                   <Field
                     name="phonenumber"
                     type="phonenumber"
@@ -102,14 +104,17 @@ const Register = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <button type="submit" className="btn btn-primary btn-block">
-                    Sign Up
+                  <button type="submit" className="btn  btn-block">
+                   Đăng ký 
                   </button>
                 </div>
               </div>
             )}
           </Form>
         </Formik>
+      </div>
+      <div className="login-image">
+        <img src="https://media.lottecinemavn.com/Media/WebAdmin/c07918028d7e45c7b50df72dc7531f9a.jpg" alt="" />
       </div>
       {message && (
         <div className="form-group">
@@ -123,6 +128,7 @@ const Register = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };
