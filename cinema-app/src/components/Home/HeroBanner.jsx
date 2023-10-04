@@ -97,7 +97,7 @@ function HeroBanner({ listFilm }) {
 
   return (
     <div className="app">
-      <div className="container" ref={ctnRef}>
+      <div className="hero__ctn" ref={ctnRef}>
         <div className="left"  >
           {isLoading ? (
             <p>Loading...</p>
