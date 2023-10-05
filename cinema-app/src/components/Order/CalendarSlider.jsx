@@ -1,20 +1,39 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { setDate } from '../../redux/slices/orderSlice';
 import "./CalendarSlider.scss"
+
+function formatDate(date) {
+  return date.toLocaleString("vi-VN", {
+    weekday: "long",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  })
+}
 
 function CalendarSlider() {
   const [weekDates, setWeekDates] = useState([]);
+  const order = useSelector((state) => state.order);
   const [today, setToday] = useState(new Date())
   const [page, setPage] = useState(1)
   const [selectDateId, setSelectDateId] = useState(0)
   const slideRef = useRef(null)
+  const dispatch = useDispatch()
+
   const getWeekDates = () => {
     const currentDate = new Date();
     const endDate = new Date();
+    let count = 0
     endDate.setDate(endDate.getDate() + 13);
     const dates = [];
     while (currentDate <= endDate) {
       const tmpDate = new Date(currentDate)
+      if (formatDate(tmpDate) == order.date) {
+        setSelectDateId(count)
+      }
       dates.push(tmpDate);
+      count += 1
       currentDate.setDate(currentDate.getDate() + 1);
     }
     setWeekDates(dates);
@@ -49,7 +68,12 @@ function CalendarSlider() {
               className={'date' + (id == 0 || date.getDate() == 1 ? "" : " offset__date")
                 + (date.getDate() - today.getDate() <= 4 ? " selectable" : "")
               }
-              onClick={() => { setSelectDateId(id) }}
+              onClick={() => {
+                if (date.getDate() - today.getDate() <= 4) {
+                  dispatch(setDate(formatDate(date)))
+                  setSelectDateId(id)
+                }
+              }}
             >
               <div className='week__day'>
                 {date.toLocaleString("default", { weekday: 'short' })}

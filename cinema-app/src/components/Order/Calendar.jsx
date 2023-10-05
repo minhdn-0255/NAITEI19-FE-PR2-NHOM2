@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getShowingFilms } from "../../services/filmServices";
+import { useDispatch } from "react-redux";
+import { setCurrentFilm, setTheater } from '../../redux/slices/orderSlice';
 import "./Calendar.scss"
 import CalendarFilmTitle from './CalendarFilmTitle';
 import OrderTicket from './OrderTicket';
@@ -28,6 +30,7 @@ function Calendar() {
   const [selectFilm, setSelectedFilm] = useState(null);
   const [listFilm, setListFilm] = useState([]);
   const [page, setPage] = useState(1);
+  const dispatch = useDispatch();
   const filmsPerPage = 5;
   const limit = 14;
 
@@ -51,10 +54,12 @@ function Calendar() {
     }
   };
   const handleTheaterClick = (theater, index) => {
+    dispatch(setTheater([selectedArea, theater]));
     setSelectedTheater(theater);
     setActiveTheaterIndex(index);
   };
   const handleFilmClick = (film) => {
+    dispatch(setCurrentFilm(film))
     setSelectedFilm(film)
   }
   const handleNextPage = () => {

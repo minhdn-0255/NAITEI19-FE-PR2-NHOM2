@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useDispatch } from "react-redux";
+import { resetPosition, setTime } from '../../redux/slices/orderSlice';
 import "./OrderTicket.scss"
 const screenSeat = [60, 70, 80, 90, 100, 120]
 function addMinutesToTime(timeString, minutesToAdd) {
@@ -15,10 +17,18 @@ function addMinutesToTime(timeString, minutesToAdd) {
 function OrderTicket({ filmId, timeStart, length }) {
   const [id, setId] = useState(filmId % screenSeat.length)
   const [hover, setHover] = useState(false)
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    dispatch(setTime(timeStart))
+    dispatch(resetPosition())
+    window.location.href = "/payment"
+  }
   return (
     <div
       onMouseOver={() => { setHover(true) }}
       onMouseLeave={() => { setHover(false) }}
+      onClick={handleClick}
       className='ticket__order' >
       <div>Screen {id + 1}</div>
       <div className='time'>{timeStart}{hover ? "~" + addMinutesToTime(timeStart, length) : ""}</div>
