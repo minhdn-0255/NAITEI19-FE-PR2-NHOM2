@@ -23,7 +23,8 @@ export default function History() {
   useEffect(() => {
     const getTransaction = async () => {
       try {
-        const res = await getALlTransaction(1);
+        const user = JSON.parse(localStorage.getItem("user"));
+        const res = await getALlTransaction(user.id);
         setListTransaction(res.DT);
       } catch (error) {
         console.log(error);

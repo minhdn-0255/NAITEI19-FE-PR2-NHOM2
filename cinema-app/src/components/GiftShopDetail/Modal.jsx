@@ -3,9 +3,10 @@ import "./Modal.scss";
 import { createTransaction } from "../../services/historyService";
 export default function Modal({ trigger, setTrigger, data }) {
   const handleTransaction = async () => {
+    let user = JSON.parse(localStorage.getItem("user"));
     let transaction = {
       name: data?.name,
-      idUser: 2,
+      idUser: user?.id,
       price: data?.price,
       count: data?.count,
       totalPayment: data?.price * data?.count,
