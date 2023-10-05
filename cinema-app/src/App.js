@@ -4,12 +4,10 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import RegisterPage from "./pages/RegisterPage";
 import FilmPage from "./pages/FilmPage";
-
 import CinemaPage from "./pages/CinemaPage";
 import FilmDetailPage from "./pages/FilmDetail"
 import UserAdminPage from "./pages/AdminPage/UserAdmin";
 import FilmAdminPage from "./pages/AdminPage/FilmAdmin";
-import FilmDetailPage from "./pages/FilmDetail";
 import TicketPage from "./pages/Ticket";
 import TicketDetailPage from "./pages/TicketDetail";
 import GiftShopPage from "./pages/GiftShopPage";
@@ -21,7 +19,7 @@ function App() {
       <Route path="/" element={<Home />}></Route>
       <Route path="/listfilm" element={<FilmPage />}></Route>
       <Route path="/login" element={<LoginPage />} /> 
-      <Route path="/register"   element={<RegisterPage/>} />  
+      <Route path="/signup"   element={<RegisterPage/>} />  
       <Route path="/cinema"   element={<CinemaPage/>} /> 
       <Route path="/movie-list" element={<FilmPage />}></Route>
       <Route path="/detail" element={<FilmDetailPage />}></Route> 

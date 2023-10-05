@@ -1,6 +1,7 @@
 import axios from "axios";
 const instance = axios.create({
-  baseURL: "https://pr2backend.onrender.com",
+  // baseURL: "https://pr2backend.onrender.com", 
+  baseURL: "http://localhost:8000",
 });
 instance.defaults.withCredentials = true;
 instance.interceptors.response.use(

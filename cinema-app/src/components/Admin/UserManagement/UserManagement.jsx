@@ -2,12 +2,28 @@ import "./UserManagement.scss";
 import { userRows } from "../../../dummyData";
 import { useState } from "react";
 import { DataGrid } from '@mui/x-data-grid';
+import {getAllUsers} from "../../../services/userServices"
+import { useEffect } from "react";
 export default function UserList() {
   const [data, setData] = useState(userRows); 
+  const [users, setUsers] = useState([]);
   const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+    setUsers(users.filter((item) => item.id !== id));
   };
-  
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await getAllUsers();
+        if (res.EC === 200) {
+          console.log(res?.DT);
+          setUsers(res?.DT);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchUser();
+  }, []);
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
     {
@@ -17,7 +33,6 @@ export default function UserList() {
       renderCell: (params) => {
         return (
           <div className="userListUser">
-            <img className="userListImg" src={params.row.avatar} alt="" />
             {params.row.username}
           </div>
         );
@@ -49,11 +64,10 @@ export default function UserList() {
   return (
     <div className="userList">
       <DataGrid
-        rows={data}
+        rows={users}
         disableSelectionOnClick
         columns={columns}
         pageSize={8}
-        checkboxSelection
       />
     </div>
   );

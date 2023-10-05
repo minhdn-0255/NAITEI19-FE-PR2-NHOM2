@@ -6,7 +6,7 @@ function FilmAdminPage() {
   return (
    <>
          <Topbar/>
-      <div className="container">
+      <div className="adm__container">
        <Sidebar/>
         <FilmList/>
       </div>

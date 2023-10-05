@@ -55,7 +55,7 @@ export default function Cinema(){
     },
     
     ]
-    const [selectedTheater, setSelectedTheater] = useState(null);
+    const [selectedTheater, setSelectedTheater] = useState(data[0]);
 
     const handleTheaterClick = (theater) => {
       setSelectedTheater(theater);

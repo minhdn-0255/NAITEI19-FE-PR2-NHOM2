@@ -7,9 +7,14 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 export const register = createAsyncThunk(
   "auth/register",
-  async ({ username, email, password }, thunkAPI) => {
+  async ({ username, email, password, phonenumber }, thunkAPI) => {
     try {
-      const response = await AuthService.register(username, email, password);
+      const response = await AuthService.register(
+        username,
+        email,
+        password,
+        phonenumber
+      );
       thunkAPI.dispatch(setMessage(response.data.message));
       return response.data;
     } catch (error) {
@@ -30,7 +35,12 @@ export const login = createAsyncThunk(
   async ({ username, password }, thunkAPI) => {
     try {
       const data = await AuthService.login(username, password);
-      return { user: data };
+      if(data?.EC==200) {
+        localStorage.setItem("user", JSON.stringify(data?.DT));
+      }else{
+        thunkAPI.dispatch(setMessage(data?.EM));
+      }
+      return { user: data?.DT };
     } catch (error) {
       const message =
         (error.response &&
@@ -79,4 +89,3 @@ const authSlice = createSlice({
 
 const { reducer } = authSlice;
 export default reducer;
-

@@ -6,7 +6,7 @@ function HomeAdminPage() {
   return (
    <>
          <Topbar/>
-      <div className="container">
+      <div className="adm__container">
        <Sidebar/>
         <div >
           <UserList/>

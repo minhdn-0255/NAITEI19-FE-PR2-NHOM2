@@ -7,10 +7,10 @@ const login = (email, password) => {
       password,
     })
     .then((response) => {
-      if (response.data) {
-        localStorage.setItem("user", JSON.stringify(response.data));
+      if (response) {
+        localStorage.setItem("user", JSON.stringify(response.DT));
       }
-      return response.data;
+      return response;
     });
 };
 const logout = () => {
