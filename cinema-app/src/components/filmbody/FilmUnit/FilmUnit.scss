@@ -9,7 +9,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      cursor: pointer;
     }
   }
   .film__unit__info {
@@ -36,14 +35,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        max-width: 90%!important; /* Đặt chiều rộng tối đa của thẻ p */
+        max-width: 90% !important; /* Đặt chiều rộng tối đa của thẻ p */
         p {
           max-height: 20px; /* Đặt chiều cao tối đa của thẻ p */
-          max-width: 100%!important; /* Đặt chiều rộng tối đa của thẻ p */
+          max-width: 100% !important; /* Đặt chiều rộng tối đa của thẻ p */
           overflow: hidden; /* Ẩn nội dung vượt quá chiều cao tối đa */
           text-overflow: ellipsis; /* Hiển thị dấu chấm ba chấm (...) cho nội dung bị cắt */
-            white-space: nowrap; /* Ngăn chặn xuống dòng */
-
+          white-space: nowrap; /* Ngăn chặn xuống dòng */
         }
       }
     }
@@ -69,7 +67,7 @@
         padding-left: 10px;
         margin-top: 5px;
         p {
-            font-weight: 600;
+          font-weight: 600;
           font-size: 16px;
           display: flex;
           flex-direction: column;

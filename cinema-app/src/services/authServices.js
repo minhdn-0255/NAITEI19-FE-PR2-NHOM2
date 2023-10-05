@@ -1,5 +1,5 @@
 import axios from "../setup/axios";
-const API_URL = "/api/v1/"
+const API_URL = "/api/v1/";
 const login = (email, password) => {
   return axios
     .post(API_URL + "login", {
@@ -25,4 +25,3 @@ const authService = {
   logout,
 };
 export default authService;
-

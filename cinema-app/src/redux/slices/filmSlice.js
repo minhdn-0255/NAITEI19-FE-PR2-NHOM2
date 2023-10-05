@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-    currentFilm : {},
+  currentFilm: {},
 };
 const filmSLice = createSlice({
-    name: "film",
-    initialState,
-    reducers: {
-        setFilm: (state, action) => {
-            state.currentFilm = action.payload;
-        },
-        clearFilm: () => {
-            return { currentFilm: {} };
-        },
+  name: "film",
+  initialState,
+  reducers: {
+    setFilm: (state, action) => {
+      return { currentFilm: action.payload };
     },
+    clearFilm: () => {
+      return { currentFilm: {} };
+    },
+  },
 });
 export const { setFilm, clearFilm } = filmSLice.actions;
 export default filmSLice.reducer;
