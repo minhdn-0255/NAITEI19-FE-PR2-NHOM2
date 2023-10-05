@@ -15,6 +15,7 @@ import TicketDetailPage from "./pages/TicketDetail";
 import GiftShopPage from "./pages/GiftShopPage";
 import GiftShopDetailPage from "./pages/GiftShopDetail";
 import Order from "./pages/Order";
+import Payment from "./pages/Payment";
 import HistoryPage from "./pages/HistoryPage";
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
       <Route path="/gift-shop" element={<GiftShopPage />}></Route>
       <Route path="/gift-shop-detail" element={<GiftShopDetailPage />}></Route>
       <Route path="/ticket" element={<Order />}></Route>
+      <Route path="/payment" element={<Payment />} />
       <Route path="/history" element={<HistoryPage />}></Route>
     </Routes>
   );

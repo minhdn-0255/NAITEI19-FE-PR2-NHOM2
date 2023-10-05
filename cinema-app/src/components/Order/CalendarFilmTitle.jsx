@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./CalendarFilmTitle.scss"
 
 function CalendarFilmTitle({ mode, id, age, title }) {
   const [displayAge, setDisplayAge] = useState(age ? age : "R")
+  useEffect(() => {
+    setDisplayAge(age ? age : "R")
+  }, [age])
   return (
     <div className='calendar__film__title'>
       {mode == "film" ?
